@@ -31,4 +31,17 @@ Coord3D * fartherFromOrigin(Coord3D *p1, Coord3D *p2)
     {
         return p2;
     }
+    return 0; 
+}
+
+void move(Coord3D *ppos, Coord3D *pvel, double dt)
+{
+    //ppos is not a variable, what are you trying to change from ppos
+    //You are still still missing something something, what should you do with dt... 
+    double xi = (ppos -> x) + ((pvel -> x) * dt);
+    double yi = (ppos -> y) + ((pvel -> y) * dt);
+    double zi = (ppos -> z) + ((pvel -> z) * dt);
+    ppos -> x = xi;
+    ppos -> y = yi;
+    ppos -> z = zi; 
 }
