@@ -4,16 +4,6 @@
 
 #include "funcs.h"
 
-std::string * createAPoem() {
-    std::string poem =    // making a string with a poem 
-      "   Said Hamlet to Ophelia,            \n"
-      "   I'll draw a sketch of thee,        \n"
-      "   What kind of pencil shall I use?   \n"
-      "   2B or not 2B?                      \n";
-
-    return &poem;    // and returning its address 
-}
-
 
 int main()
 {
@@ -23,8 +13,8 @@ int main()
   std::cout << "Address of Q: " << &pointQ << std::endl;
 
   std::cout << "---------------------Example for task A---------------------" << std::endl;
-  std::cout << length(&pointP ) << std::endl;
-  std::cout << length(&pointQ ) << std::endl;
+  std::cout << "The length of P is: " << length(&pointP ) << std::endl;
+  std::cout << "The length of Q is: " <<length(&pointQ ) << std::endl;
 
 
   std::cout << "---------------------Example for task B---------------------" << std::endl;
@@ -35,7 +25,7 @@ int main()
   std::cout << "---------------------Example for task C---------------------" << std::endl;
 
   Coord3D pos = {0, 0, 100.0};
-    std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
+  std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
 
   Coord3D vel = {1, -5, 0.2};
   move(&pos, &vel, 2.0); // object pos gets changed
@@ -43,9 +33,15 @@ int main()
 
   std::cout << "---------------------Example for task E---------------------" << std::endl;
 
-  std::cout << "Goodbye World" << std::endl;
+  Coord3D *ppos = createCoord3D(0, 0, 0);
+  Coord3D *pvel = createCoord3D(6 , -1, 25);
 
+  move(ppos, pvel, 10.0);
 
+  std::cout << "X,Y,Z after 10 seconds: " << (*ppos).x << " " << (*ppos).y << " " << (*ppos).z << std::endl;
+
+  deleteCoord3D(ppos); // gets rid of used memory 
+  deleteCoord3D(pvel);
 
 
   return 0;
