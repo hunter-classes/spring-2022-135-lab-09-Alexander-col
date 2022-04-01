@@ -45,3 +45,16 @@ void move(Coord3D *ppos, Coord3D *pvel, double dt)
     ppos -> y = yi;
     ppos -> z = zi; 
 }
+
+Coord3D* createCoord3D(double x, double y, double z) 
+{ 
+    Coord3D *points = new Coord3D;
+    *points = {x, y, z};
+
+    return points;
+}
+
+void deleteCoord3D(Coord3D *p) 
+{ 
+    delete p;
+}
